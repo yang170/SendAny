@@ -28,4 +28,4 @@ Route::get('/upload/{session}', [FileController::class, 'get']);
 Route::post('/upload', [FileController::class, 'put']);
 
 Route::get('/text/{session}', [TextController::class, 'get']);
-Route::put('/text', [TextController::class, 'put']);
+Route::post('/text', [TextController::class, 'post']);

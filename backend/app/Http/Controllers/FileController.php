@@ -28,12 +28,19 @@ class FileController extends Controller
                 );
         }
 
+        $resp = array();
         $session_id = Session::where('session_number', $session)
             ->first()
             ->id;
 
         $files = File::where('session_id', $session_id)->get();
-        return response()->json($files);
+        foreach ($files as $file) {
+            array_push($resp, [
+                'fileName' => $file['file_name'],
+                'createdAt' => $file['created_at']
+            ]);
+        }
+        return response()->json($resp);
     }
 
     public function put(Request $request)

@@ -69,7 +69,7 @@ class SessionController extends Controller
         $sessionNumber = $this->addSessionNumToDB();
         return response()
             ->json(
-                ['message' => 'created', 'session_number' => $sessionNumber],
+                ['message' => 'created', 'sessionNumber' => $sessionNumber],
                 Response::HTTP_OK
             );
     }

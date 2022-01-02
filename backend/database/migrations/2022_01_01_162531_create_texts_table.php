@@ -15,7 +15,7 @@ class CreateTextsTable extends Migration
     {
         Schema::create('texts', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->text('content');
             $table->foreignId('session_id')
                 ->constrained()
                 ->onUpdate('cascade')

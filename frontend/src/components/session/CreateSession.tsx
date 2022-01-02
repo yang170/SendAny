@@ -1,4 +1,7 @@
 import * as React from "react";
+import { axiosInstance as axios } from "../../axios";
+import { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   Alert,
   Button,
@@ -11,6 +14,18 @@ import {
 import { BackToSelectButton } from "./BackToSelectButton";
 
 const CreateSession = React.memo((): JSX.Element => {
+  const nevigate = useNavigate();
+
+  const handleCreateButtonClick = () => {
+    axios.get("session").then((res: AxiosResponse) => {
+      const sessionNumber = res.data.sessionNumber;
+      nevigate("/share", {
+        replace: true,
+        state: { session: sessionNumber },
+      });
+    });
+  };
+
   return (
     <Center width="full" paddingTop="20vh">
       <Flex
@@ -30,7 +45,11 @@ const CreateSession = React.memo((): JSX.Element => {
           provided
         </Alert>
         <Spacer />
-        <Button colorScheme="teal" width={["100%", null, "35%"]}>
+        <Button
+          colorScheme="teal"
+          onClick={handleCreateButtonClick}
+          width={["100%", null, "35%"]}
+        >
           Create
         </Button>
       </Flex>

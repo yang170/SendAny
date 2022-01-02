@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Models\Text;
 use App\Models\Session;
@@ -30,7 +29,10 @@ class TextController extends Controller
             ->first()
             ->id;
 
-        $content = Text::where('session_id', $session_id)->first()->get()[0]["content"];
+        $content = "";
+        if (Text::where('session_id', $session_id)->exists()) {
+            $content = Text::where('session_id', $session_id)->first()["content"];
+        }
 
         return response()
             ->json(
@@ -39,7 +41,7 @@ class TextController extends Controller
             );
     }
 
-    public function put(Request $request)
+    public function post(Request $request)
     {
         $session = $request->get('session_number');
         $content = $request->get('content');
@@ -64,14 +66,26 @@ class TextController extends Controller
             ->first()
             ->id;
 
-        $text = new Text;
-        $text->content = $content;
-        $text->session_id = $session_id;
-        $text->save();
+        if (Text::where('session_id', $session_id)->exists()) {
+            $text = Text::where('session_id', $session_id)->first();
+            $text->content = $content;
+            $text->save();
+        } else {
+            $text = new Text;
+            $text->session_id = $session_id;
+            $text->content = $content;
+            $text->save();
+        }
+
+
+        $text = Text::updateOrCreate(
+            ['session_id' => $session_id],
+            ['content' => $content]
+        );
 
         return response()
             ->json(
-                ['message' => 'success', 'content' => $content],
+                ['message' => 'success', 'content' => $text['content']],
                 Response::HTTP_OK
             );
     }
