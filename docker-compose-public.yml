@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mariadb:
+    image: docker.io/bitnami/mariadb:10.6
+    # change password for deployment
+    environment:
+      - MARIADB_USER=user
+      - MARIADB_DATABASE=my_db
+      - MARIADB_PASSWORD=my_password
+      - MARIADB_ROOT_PASSWORD=root_password
+
+  backend:
+    tty: true
+    image: docker.io/bitnami/laravel:8
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=user
+      - DB_DATABASE=my_db
+      - DB_PASSWORD=my_password
+    depends_on:
+      - mariadb
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend/:/app
