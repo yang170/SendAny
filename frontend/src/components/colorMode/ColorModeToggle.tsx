@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Flex, IconButton, useColorMode } from "@chakra-ui/react";
+import { Flex, IconButton, useColorMode, Button } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 const ColorModeToggle = React.memo((): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Flex justifyContent="right">
+    <Flex width="100%">
       <IconButton
         aria-label={
           colorMode === "light" ? "Change to dark mode" : "Change to light mode"
@@ -15,11 +15,12 @@ const ColorModeToggle = React.memo((): JSX.Element => {
         icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         width="min"
         float="right"
-        margin="1"
+        marginLeft="auto"
+        marginTop="1"
+        marginBottom="1"
+        marginRight="1"
         onClick={toggleColorMode}
-      >
-        Back
-      </IconButton>
+      />
     </Flex>
   );
 });

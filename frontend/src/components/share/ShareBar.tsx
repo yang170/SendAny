@@ -124,7 +124,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
   };
 
   return (
-    <Flex direction="column" width="full">
+    <Flex direction="column" width="full" marginBottom="1">
       <Box borderRadius="md"></Box>
       <Textarea
         marginTop="1"

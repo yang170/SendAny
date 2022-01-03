@@ -4,7 +4,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 
 const BackToSelectButton = React.memo((): JSX.Element => {
-  let nevigate = useNavigate();
+  const nevigate = useNavigate();
 
   const handleBackClick = (): void => {
     nevigate("/");
