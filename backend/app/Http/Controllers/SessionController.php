@@ -64,14 +64,25 @@ class SessionController extends Controller
         return $sessionNumber;
     }
 
-    public function get(Request $request)
+    public function get(Request $request, $sessionNumber = null)
     {
-        $sessionNumber = $this->addSessionNumToDB();
-        return response()
-            ->json(
-                ['message' => 'created', 'sessionNumber' => $sessionNumber],
-                Response::HTTP_OK
+        if ($sessionNumber != null) {
+            // check if a session exist
+            return response()->json(
+                [
+                    "message" => $this->isSessionExist($sessionNumber),
+                    'sessionNumber' => $sessionNumber
+                ]
             );
+        } else {
+            // create a new session
+            $sessionNumber = $this->addSessionNumToDB();
+            return response()
+                ->json(
+                    ['message' => 'created', 'sessionNumber' => $sessionNumber],
+                    Response::HTTP_OK
+                );
+        }
     }
 
     public function delete(Request $request)

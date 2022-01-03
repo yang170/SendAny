@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\FileController;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\TextController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Http\Request;
@@ -21,11 +22,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/session', [SessionController::class, 'get']);
+Route::get('/session/{session?}', [SessionController::class, 'get']);
 Route::delete('/session', [SessionController::class, 'delete']);
 
-Route::get('/upload/{session}', [FileController::class, 'get']);
-Route::post('/upload', [FileController::class, 'put']);
+Route::get('/upload/{session}', [UploadController::class, 'get']);
+Route::post('/upload', [UploadController::class, 'put']);
+
+Route::get(
+    '/download/{session}/{file}/{password?}',
+    [DownloadController::class, 'get']
+);
 
 Route::get('/text/{session}', [TextController::class, 'get']);
 Route::post('/text', [TextController::class, 'post']);

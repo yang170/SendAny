@@ -162,6 +162,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
           type="file"
           id="file"
           ref={inputFile}
+          onChange={handleAttchFileUpload}
           style={{ display: "none" }}
         />
       </HStack>

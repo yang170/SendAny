@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class FileController extends Controller
+class UploadController extends Controller
 {
     const SIZE_LIMIT = 20000000; // 20 MB
 
@@ -57,7 +57,7 @@ class FileController extends Controller
         $file = $request->file('attachment');
         $size = $file ? $file->getSize() : 0;
 
-        if ($file && $size <= FileController::SIZE_LIMIT) {
+        if ($file && $size <= UploadController::SIZE_LIMIT) {
             $path = Storage::putFile($session, $file);
             $origionalName = $file->getClientOriginalName();
 
@@ -71,7 +71,7 @@ class FileController extends Controller
             $fileRecord->save();
             return response()
                 ->json(["message" => "success"], Response::HTTP_OK);
-        } else if ($size > FileController::SIZE_LIMIT) {
+        } else if ($size > UploadController::SIZE_LIMIT) {
             return response()
                 ->json(
                     ["message" => "file is too large"],
