@@ -43,10 +43,6 @@ class DownloadController extends Controller
 
         $path = File::where('file_name', $file)->first()['path'];
 
-        $headers = [
-            header('Content-Disposition', 'attachment')
-        ];
-
-        return Storage::download($path, $file, $headers);
+        return Storage::download($path);
     }
 }

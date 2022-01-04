@@ -22,7 +22,7 @@ const ChooseMode = React.memo((): JSX.Element => {
         height="9em"
         margin="3"
       >
-        <Text fontSize="xl">Welcome to SendAny</Text>
+        <Text fontSize="xl">Welcome to ShareAny</Text>
         <Spacer />
         <Button colorScheme="teal" onClick={handleCreateClick}>
           Create a Session
