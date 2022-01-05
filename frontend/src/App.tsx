@@ -1,4 +1,5 @@
 import React from "react";
+import { theme } from "./style/theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ChooseMode } from "./components/session/ChooseMode";
@@ -9,7 +10,7 @@ import { Share } from "./components/share/Share";
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <ColorModeToggle />
       <BrowserRouter>
         <Routes>

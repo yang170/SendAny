@@ -23,6 +23,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
   const handleAttachFileClick = () => {
     // `current` points to the mounted file input element
     if (inputFile !== null && inputFile.current !== null) {
+      inputFile.current.value = "";
       inputFile.current.click();
     }
   };

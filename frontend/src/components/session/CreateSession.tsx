@@ -4,6 +4,7 @@ import { AxiosResponse } from "axios";
 import { useNavigate } from "react-router-dom";
 import {
   Alert,
+  AlertIcon,
   Button,
   Center,
   Input,
@@ -40,7 +41,8 @@ const CreateSession = React.memo((): JSX.Element => {
         <Spacer />
         <Input placeholder="Optional"></Input>
         <Spacer />
-        <Alert status="info">
+        <Alert borderRadius="md" status="info">
+          <AlertIcon />
           Password is optional, anyone can join your session if no password is
           provided
         </Alert>
