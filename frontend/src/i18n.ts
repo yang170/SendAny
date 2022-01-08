@@ -22,6 +22,7 @@ i18n
   .init({
     fallbackLng: "en",
     supportedLngs: ["en", "zh"],
+    ns: "chooseMode",
     defaultNS: "chooseMode",
     debug: false,
     interpolation: {
