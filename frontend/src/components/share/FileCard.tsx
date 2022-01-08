@@ -47,7 +47,10 @@ const FileCard = React.memo(
         })
         .catch((err) => {
           console.log(err);
-          toastError();
+          toastError(
+            t("errMsgTitleRoomDoesNotExist"),
+            t("errMsgDetailRoomDoesNotExist")
+          );
         });
     };
 

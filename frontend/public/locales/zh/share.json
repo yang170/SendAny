@@ -5,6 +5,8 @@
     "errMsgDetailFileTooLarge": "文件大小限制为 {{limit}} MB",
     "errMsgTitleEmptyText": "文本为空",
     "errMsgDetailEmptyText": "请输入一些文字再共享",
+    "errMsgTitleRoomDoesNotExist": "共享室已被删除",
+    "errMsgDetailRoomDoesNotExist": "你已经不能再访问这个共享室",
     "successMsgTitleFileUploaded": "文件上传成功",
     "successMsgDetailFileUploaded": "我们已将此文件共享",
     "successMsgTitleTextShared": "文本上传成功",

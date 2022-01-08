@@ -5,6 +5,8 @@
     "errMsgDetailFileTooLarge": "Size limit is {{limit}} MB",
     "errMsgTitleEmptyText": "Text is empty",
     "errMsgDetailEmptyText": "Please type something before share it",
+    "errMsgTitleRoomDoesNotExist": "Share room has been deleted",
+    "errMsgDetailRoomDoesNotExist": "You can no longer access this share room",
     "successMsgTitleFileUploaded": "File uploaded",
     "successMsgDetailFileUploaded": "We've shared the file for you",
     "successMsgTitleTextShared": "Text shared",

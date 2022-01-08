@@ -124,7 +124,10 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
         );
       })
       .catch((err) => {
-        toastError();
+        toastError(
+          t("errMsgTitleRoomDoesNotExist"),
+          t("errMsgDetailRoomDoesNotExist")
+        );
       });
   };
 
