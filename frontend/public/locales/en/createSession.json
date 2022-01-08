@@ -1,6 +1,6 @@
 {
-    "title": "Set Room Password",
+    "title": "Set Sapce Password",
     "passwordPlaceholder": "Optional",
-    "passwordNotice": "Password is optional, anyone can join your session if no password is provided",
+    "passwordNotice": "Password is optional, anyone can join your space if no password is provided",
     "createButton": "Create"
 }

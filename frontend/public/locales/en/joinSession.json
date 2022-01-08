@@ -1,10 +1,10 @@
 {
-    "rid": "Room ID",
-    "rpwd": "Room Password",
+    "rid": "Sapce ID",
+    "rpwd": "Sapce Password",
     "join": "Join",
     "passwordPlaceholder": "Optional",
-    "errMsgTitleInvalidID": "Room ID is invalid",
-    "errMsgDetailInvalidID": "Please fill the room ID",
-    "errMsgTitleIncorrect": "Room ID or password is incorrect",
-    "errMsgDetailIncorrect": "Please enter the correct room ID and password"
+    "errMsgTitleInvalidID": "Space ID is invalid",
+    "errMsgDetailInvalidID": "Please fill the space ID",
+    "errMsgTitleIncorrect": "Space ID or password is incorrect",
+    "errMsgDetailIncorrect": "Please enter the correct space ID and password"
 }

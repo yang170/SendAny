@@ -1,6 +1,6 @@
 {
-    "title": "设置共享室密码",
+    "title": "设置共享空间密码",
     "passwordPlaceholder": "非必须",
-    "passwordNotice": "密码可以设置为空，这样的话任何人都可能加入你的共享室",
+    "passwordNotice": "密码可以设置为空，这样的话任何人都可能加入你的共享空间",
     "createButton": "创建"
 }

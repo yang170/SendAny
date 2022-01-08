@@ -1,10 +1,10 @@
 {
-    "rid": "共享室 ID",
-    "rpwd": "共享室密码",
+    "rid": "共享空间 ID",
+    "rpwd": "共享空间密码",
     "join": "加入",
     "passwordPlaceholder": "可能为空",
-    "errMsgTitleInvalidID": "共享室 ID 错误",
+    "errMsgTitleInvalidID": "共享空间 ID 错误",
     "errMsgDetailInvalidID": "请填写完整的 ID",
-    "errMsgTitleIncorrect": "共享室 ID 或密码错误",
-    "errMsgDetailIncorrect": "请填写正确的共享室 ID 和密码"
+    "errMsgTitleIncorrect": "共享空间 ID 或密码错误",
+    "errMsgDetailIncorrect": "请填写正确的共享空间 ID 和密码"
 }
