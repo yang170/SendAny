@@ -1,0 +1,19 @@
+{
+    "rid": "共享室 ID: ",
+    "deleteRoom": "删除共享室",
+    "errMsgTitleFileTooLarge": "文件过大",
+    "errMsgDetailFileTooLarge": "文件大小限制为 {{limit}} MB",
+    "errMsgTitleEmptyText": "文本为空",
+    "errMsgDetailEmptyText": "请输入一些文字再共享",
+    "successMsgTitleFileUploaded": "文件上传成功",
+    "successMsgDetailFileUploaded": "我们已将此文件共享",
+    "successMsgTitleTextShared": "文本上传成功",
+    "successMsgDetailTextShared": "我们已经将此文本共享",
+    "textAreaPlaceholder": "输入文字或拖拽文件到这里",
+    "shareFileButton": "共享文件",
+    "shareTextButton": "共享文本",
+    "clearTextButton": "清空文本",
+    "sharedFileAreaTitle": "共享的文件",
+    "sharedTextAreaTitle": "共享的文本",
+    "textCopied": "已复制"
+}

@@ -14,6 +14,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { BackToSelectButton } from "./BackToSelectButton";
+import { useTranslation } from "react-i18next";
 
 interface ISessionID {
   ID: string;
@@ -22,6 +23,7 @@ interface ISessionID {
 const JoinSession = React.memo((): JSX.Element => {
   const SESSION_ID_LEN = 6;
   const nevigate = useNavigate();
+  const { t } = useTranslation(["joinSession", "common"]);
   const toast = useToast();
   const [session, setSession] = React.useState<ISessionID>({
     ID: "",
@@ -30,8 +32,8 @@ const JoinSession = React.memo((): JSX.Element => {
   const toastError = (title?: string, detail?: string) => {
     toast({
       position: "top",
-      title: title ? title : "Something went wrong",
-      description: detail ? detail : "Please try again later",
+      title: title ? title : t("errMsgTitleGeneric"),
+      description: detail ? detail : t("errMsgDetailGeneric"),
       status: "error",
       duration: 3000,
       isClosable: true,
@@ -47,16 +49,13 @@ const JoinSession = React.memo((): JSX.Element => {
 
   const handleJoinButtonClick = () => {
     if (session.ID.length < SESSION_ID_LEN) {
-      toastError("Session ID is invalid", "Please fill the session ID");
+      toastError(t("errMsgTitleInvalidID"), t("errMsgDetailInvalidID"));
       return;
     }
 
     axios.get(`session/${session.ID}`).then((res) => {
       if (res.data.message === false) {
-        toastError(
-          "Session ID or password is incorrect",
-          "Please enter the correct session ID and password"
-        );
+        toastError(t("errMsgTitleIncorrect"), t("errMsgDetailIncorrect"));
         return;
       } else {
         const sessionNumber = res.data.sessionNumber;
@@ -72,7 +71,7 @@ const JoinSession = React.memo((): JSX.Element => {
     <Center width="full" paddingTop="20vh">
       <Flex direction="column" width="3xl" height="16em" margin="3">
         <BackToSelectButton />
-        <Text fontSize="xl">Session ID</Text>
+        <Text fontSize="xl">{t("rid")}</Text>
         <Spacer />
         <HStack>
           <PinInput
@@ -89,9 +88,9 @@ const JoinSession = React.memo((): JSX.Element => {
           </PinInput>
         </HStack>
         <Spacer />
-        <Text fontSize="xl">Session Password</Text>
+        <Text fontSize="xl">{t("rpwd")}</Text>
         <Spacer />
-        <Input placeholder="Optional"></Input>
+        <Input placeholder={t("passwordPlaceholder")}></Input>
         <Spacer />
         <Button
           colorScheme="teal"
@@ -99,7 +98,7 @@ const JoinSession = React.memo((): JSX.Element => {
           onClick={handleJoinButtonClick}
           marginTop="2"
         >
-          Join
+          {t("join")}
         </Button>
       </Flex>
     </Center>

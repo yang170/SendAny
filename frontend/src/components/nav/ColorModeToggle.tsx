@@ -15,10 +15,6 @@ const ColorModeToggle = React.memo((): JSX.Element => {
         icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         width="min"
         float="right"
-        marginLeft="auto"
-        marginTop="1"
-        marginBottom="1"
-        marginRight="1"
         onClick={toggleColorMode}
       />
     </Flex>

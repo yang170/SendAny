@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Button, Center, Text, Flex, Spacer } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ChooseMode = React.memo((): JSX.Element => {
-  let nevigate = useNavigate();
+  const nevigate = useNavigate();
+  const { t } = useTranslation("chooseMode");
 
   const handleCreateClick = (): void => {
     nevigate("/create");
@@ -22,14 +24,14 @@ const ChooseMode = React.memo((): JSX.Element => {
         height="9em"
         margin="3"
       >
-        <Text fontSize="xl">Welcome to ShareAny</Text>
+        <Text fontSize="xl">{t("welcome")}</Text>
         <Spacer />
         <Button colorScheme="teal" onClick={handleCreateClick}>
-          Create a Session
+          {t("create")}
         </Button>
         <Spacer />
         <Button colorScheme="teal" onClick={handleJoinClick}>
-          Join a Session
+          {t("join")}
         </Button>
       </Flex>
     </Center>

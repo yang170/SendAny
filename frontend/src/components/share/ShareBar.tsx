@@ -9,12 +9,14 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { AttachmentIcon, CloseIcon, CheckIcon } from "@chakra-ui/icons";
+import { useTranslation } from "react-i18next";
 
 interface IShareBar {
   session: string;
 }
 
 const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
+  const { t } = useTranslation(["share", "common"]);
   const inputFile: React.MutableRefObject<null | HTMLInputElement> =
     React.useRef(null);
   const [text, setText] = React.useState("");
@@ -42,8 +44,8 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
   const toastError = (title?: string, detail?: string) => {
     toast({
       position: "top",
-      title: title ? title : "Something went wrong",
-      description: detail ? detail : "Please try again later",
+      title: title ? title : t("errMsgTitleGeneric"),
+      description: detail ? detail : t("errMsgDetailGeneric"),
       status: "error",
       duration: 3000,
       isClosable: true,
@@ -62,8 +64,8 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
       const FILE_SIZE_LIMIG = 20000000;
       if (inputFile.current.files[0].size > FILE_SIZE_LIMIG) {
         toastError(
-          "File is too large",
-          `Size limit is ${FILE_SIZE_LIMIG / 1000000} MB`
+          t("errMsgTitleFileTooLarge"),
+          t("errMsgDetailFileTooLarge", { limit: FILE_SIZE_LIMIG / 1000000 })
         );
         return;
       }
@@ -78,7 +80,10 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
           },
         })
         .then((res) => {
-          toastSuccess("File uploaded", "We've shared the file for you");
+          toastSuccess(
+            t("successMsgTitleFileUploaded"),
+            t("successMsgDetailFileUploaded")
+          );
         })
         .catch((err) => {
           toastError();
@@ -106,14 +111,17 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
 
   const handleShareText = () => {
     if (text.length === 0) {
-      toastError("Text is empty", "Please type something before share it");
+      toastError(t("errMsgTitleEmptyText"), t("errMsgDetailEmptyText"));
       return;
     }
 
     axios
       .post("text", { session_number: session, content: text })
       .then((res) => {
-        toastSuccess("Text shared", "We've shared the text for you");
+        toastSuccess(
+          t("successMsgTitleTextShared"),
+          t("successMsgDetailTextShared")
+        );
       })
       .catch((err) => {
         toastError();
@@ -129,7 +137,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
       <Box borderRadius="md"></Box>
       <Textarea
         marginTop="1"
-        placeholder="Type or drop files here"
+        placeholder={t("textAreaPlaceholder")}
         value={text}
         onDrop={handleFileDrop}
         onChange={handleTextChange}
@@ -141,7 +149,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
           onClick={handleAttachFileClick}
           width="min"
         >
-          Share a file
+          {t("shareFileButton")}
         </Button>
         <Button
           colorScheme="blue"
@@ -149,7 +157,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
           leftIcon={<CloseIcon />}
           width="min"
         >
-          Clear Text
+          {t("clearTextButton")}
         </Button>
         <Button
           colorScheme="green"
@@ -157,7 +165,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
           leftIcon={<CheckIcon />}
           width="min"
         >
-          Share Text
+          {t("shareTextButton")}
         </Button>
         <input
           type="file"

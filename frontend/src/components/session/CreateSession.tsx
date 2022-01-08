@@ -13,9 +13,11 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { BackToSelectButton } from "./BackToSelectButton";
+import { useTranslation } from "react-i18next";
 
 const CreateSession = React.memo((): JSX.Element => {
   const nevigate = useNavigate();
+  const { t } = useTranslation("createSession");
 
   const handleCreateButtonClick = () => {
     axios.get("session").then((res: AxiosResponse) => {
@@ -37,14 +39,13 @@ const CreateSession = React.memo((): JSX.Element => {
         margin="3"
       >
         <BackToSelectButton />
-        <Text fontSize="xl">Set Session Password</Text>
+        <Text fontSize="xl">{t("title")}</Text>
         <Spacer />
-        <Input placeholder="Optional"></Input>
+        <Input placeholder={t("passwordPlaceholder")}></Input>
         <Spacer />
         <Alert borderRadius="md" status="info">
           <AlertIcon />
-          Password is optional, anyone can join your session if no password is
-          provided
+          {t("passwordNotice")}
         </Alert>
         <Spacer />
         <Button
@@ -52,7 +53,7 @@ const CreateSession = React.memo((): JSX.Element => {
           onClick={handleCreateButtonClick}
           width={["100%", null, "35%"]}
         >
-          Create
+          {t("createButton")}
         </Button>
       </Flex>
     </Center>

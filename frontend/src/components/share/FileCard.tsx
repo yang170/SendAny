@@ -2,6 +2,7 @@ import * as React from "react";
 import { axiosInstance as axios } from "../../axios";
 import { Flex, IconButton, Text, useToast } from "@chakra-ui/react";
 import { DownloadIcon } from "@chakra-ui/icons";
+import { useTranslation } from "react-i18next";
 
 export interface IFileCard {
   fileName: string;
@@ -11,13 +12,14 @@ export interface IFileCard {
 
 const FileCard = React.memo(
   ({ fileName, createdAt, session }: IFileCard): JSX.Element => {
+    const { t } = useTranslation(["common"]);
     const toast = useToast();
 
     const toastError = (title?: string, detail?: string) => {
       toast({
         position: "top",
-        title: title ? title : "Something went wrong",
-        description: detail ? detail : "Please try again later",
+        title: title ? title : t("errMsgTitleGeneric"),
+        description: detail ? detail : t("errMsgDetailGeneric"),
         status: "error",
         duration: 3000,
         isClosable: true,

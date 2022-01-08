@@ -2,6 +2,7 @@ import * as React from "react";
 import { axiosInstance as axios } from "../../axios";
 import { FileCard, IFileCard } from "./FileCard";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 interface ISharedFiles {
   session: string;
@@ -12,6 +13,7 @@ interface ISharedFilesState {
 }
 
 const SharedFiels = React.memo(({ session }: ISharedFiles): JSX.Element => {
+  const { t } = useTranslation("share");
   const backgroundColor = useColorModeValue("gray.100", "gray.600");
 
   const [sharedFiles, setSharedFiles] = React.useState<
@@ -43,7 +45,7 @@ const SharedFiels = React.memo(({ session }: ISharedFiles): JSX.Element => {
       overflowY="auto"
     >
       <Text padding="3" fontWeight="bold">
-        SHARED FILES
+        {t("sharedFileAreaTitle")}
       </Text>
       {sharedFiles === undefined
         ? null

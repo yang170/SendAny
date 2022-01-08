@@ -10,6 +10,7 @@ import {
   useClipboard,
 } from "@chakra-ui/react";
 import { CopyIcon } from "@chakra-ui/icons";
+import { useTranslation } from "react-i18next";
 
 interface ISharedText {
   session: string;
@@ -20,6 +21,7 @@ interface ISharedTextState {
 }
 
 const SharedText = React.memo(({ session }: ISharedText): JSX.Element => {
+  const { t } = useTranslation("share");
   const backgroundColor = useColorModeValue("gray.100", "gray.600");
   const [sharedText, setSharedText] = React.useState<ISharedTextState>({
     content: "",
@@ -56,7 +58,7 @@ const SharedText = React.memo(({ session }: ISharedText): JSX.Element => {
     >
       <HStack margin="3">
         <Text as="span" fontWeight="bold">
-          SHARED TEXT
+          {t("sharedTextAreaTitle")}
         </Text>
         <IconButton
           aria-label="Copy"
@@ -67,7 +69,7 @@ const SharedText = React.memo(({ session }: ISharedText): JSX.Element => {
         />
         {hasCopied ? (
           <ScaleFade initialScale={0.9} in={hasCopied}>
-            <Text>Copied</Text>
+            <Text>{t("textCopied")}</Text>
           </ScaleFade>
         ) : null}
       </HStack>

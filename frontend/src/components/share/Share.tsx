@@ -14,12 +14,14 @@ import { InfoIcon } from "@chakra-ui/icons";
 import { ShareBar } from "./ShareBar";
 import { SharedFiels } from "./SharedFiles";
 import { SharedText } from "./SharedText";
+import { useTranslation } from "react-i18next";
 
 interface ISessionLocation {
   session: string;
 }
 
 const Share = React.memo((): JSX.Element => {
+  const { t } = useTranslation("share");
   const { state } = useLocation();
   const nevigate = useNavigate();
   const session = (state as ISessionLocation).session;
@@ -35,7 +37,9 @@ const Share = React.memo((): JSX.Element => {
       <HStack marginBottom="5">
         <Tag size="lg" width="fit-content">
           <TagLeftIcon as={InfoIcon} />
-          <TagLabel>Session ID: {session}</TagLabel>
+          <TagLabel>
+            {t("rid")} {session}
+          </TagLabel>
         </Tag>
         <Button
           variant="outline"
@@ -45,7 +49,7 @@ const Share = React.memo((): JSX.Element => {
           onClick={handleDeleteSession}
           leftIcon={<DeleteIcon />}
         >
-          Delete Session
+          {t("deleteRoom")}
         </Button>
       </HStack>
       <SharedFiels session={session} />
