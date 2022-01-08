@@ -2,6 +2,7 @@
     "rewrites": [
         {"source": "create", "destination": "/index.html" },
         {"source": "join", "destination": "/index.html" },
-        {"source": "share", "destination": "/index.html" }
+        {"source": "share", "destination": "/index.html" },
+        {"source": "privacy", "destination": "/index.html" }
     ]
 }
