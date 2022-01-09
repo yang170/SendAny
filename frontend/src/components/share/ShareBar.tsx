@@ -44,8 +44,8 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
   const toastError = (title?: string, detail?: string) => {
     toast({
       position: "top",
-      title: title ? title : t("errMsgTitleGeneric"),
-      description: detail ? detail : t("errMsgDetailGeneric"),
+      title: title ? title : t("errMsgTitleGeneric", { ns: "common" }),
+      description: detail ? detail : t("errMsgDetailGeneric", { ns: "common" }),
       status: "error",
       duration: 3000,
       isClosable: true,
@@ -86,7 +86,10 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
           );
         })
         .catch((err) => {
-          toastError();
+          toastError(
+            t("errMsgTitleRoomDoesNotExist"),
+            t("errMsgDetailRoomDoesNotExist")
+          );
         });
     }
   };

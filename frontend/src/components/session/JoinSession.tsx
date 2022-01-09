@@ -32,8 +32,8 @@ const JoinSession = React.memo((): JSX.Element => {
   const toastError = (title?: string, detail?: string) => {
     toast({
       position: "top",
-      title: title ? title : t("errMsgTitleGeneric"),
-      description: detail ? detail : t("errMsgDetailGeneric"),
+      title: title ? title : t("errMsgTitleGeneric", { ns: "common" }),
+      description: detail ? detail : t("errMsgDetailGeneric", { ns: "common" }),
       status: "error",
       duration: 3000,
       isClosable: true,
@@ -53,18 +53,23 @@ const JoinSession = React.memo((): JSX.Element => {
       return;
     }
 
-    axios.get(`session/${session.ID}`).then((res) => {
-      if (res.data.message === false) {
-        toastError(t("errMsgTitleIncorrect"), t("errMsgDetailIncorrect"));
-        return;
-      } else {
-        const sessionNumber = res.data.sessionNumber;
-        nevigate("/share", {
-          replace: true,
-          state: { session: sessionNumber },
-        });
-      }
-    });
+    axios
+      .get(`session/${session.ID}`)
+      .then((res) => {
+        if (res.data.message === false) {
+          toastError(t("errMsgTitleIncorrect"), t("errMsgDetailIncorrect"));
+          return;
+        } else {
+          const sessionNumber = res.data.sessionNumber;
+          nevigate("/share", {
+            replace: true,
+            state: { session: sessionNumber },
+          });
+        }
+      })
+      .catch(() => {
+        toastError();
+      });
   };
 
   return (

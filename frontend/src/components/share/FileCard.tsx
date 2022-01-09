@@ -12,7 +12,7 @@ export interface IFileCard {
 
 const FileCard = React.memo(
   ({ fileName, createdAt, session }: IFileCard): JSX.Element => {
-    const { t } = useTranslation(["common"]);
+    const { t } = useTranslation(["share", "common"]);
     const toast = useToast();
 
     const toastError = (title?: string, detail?: string) => {
