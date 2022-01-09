@@ -21,10 +21,13 @@ const ChooseMode = React.memo((): JSX.Element => {
         direction="column"
         justify="center"
         width="3xl"
-        height="9em"
+        height="10em"
         margin="3"
       >
         <Text fontSize="xl">{t("welcome")}</Text>
+        <Text fontSize="lg" as="span">
+          {t("intro")}
+        </Text>
         <Spacer />
         <Button colorScheme="teal" onClick={handleCreateClick}>
           {t("create")}
