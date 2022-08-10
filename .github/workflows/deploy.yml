@@ -13,7 +13,7 @@ env:
   REGISTRY: ghcr.io
   FRONT_END_IMAGE_NAME: ${{ github.actor }}/frontend
   FRONT_END_IMAGE_TAG: latest
-  REPO_PATH: ~/ShareAny
+  DOCKER_COMPOSE_PATH: ./conf/docker_compose
   
 jobs:
   deploy_frontend:
