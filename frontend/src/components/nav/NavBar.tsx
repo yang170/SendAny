@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Flex, HStack, Link, Spacer } from "@chakra-ui/react";
+import { Flex, HStack } from "@chakra-ui/react";
 import { About } from "./About";
 import { ColorModeToggle } from "./ColorModeToggle";
 import { ChooseLanguage } from "./ChooseLanguage";
