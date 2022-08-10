@@ -1,0 +1,24 @@
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+  
+env:
+  REGISTRY: ghcr.io
+  FRONT_END_IMAGE_NAME: ${{ github.actor }}/frontend
+  FRONT_END_IMAGE_TAG: latest
+  
+jobs:
+  deploy_frontend:
+    runs-on: [self-hosted, shareany]
+    steps:
+      - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.PUBLISH_IMAGE_TOKEN }}
+          
+      - name: Pull the latest docker image for the front-end
+        run: docker pull ${{ env.FRONT_END_IMAGE_NAME }}:${{ env.FRONT_END_IMAGE_TAG }}
+      
