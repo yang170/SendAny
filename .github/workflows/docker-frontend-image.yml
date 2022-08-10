@@ -1,0 +1,47 @@
+name: CI Docker Image for the Frontend
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build_frontend:
+  
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [17.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: setup node
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: step into the frontend folder
+        run: cd frontend
+        
+      - name: Install dependencies
+        run: |
+          npm install
+          npm ci 
+  
+      - name: build
+        run: |
+          npm run build
+          npm run test
+          
+  build_docker_image:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image for the frontend
+      run: docker build . --file conf/dockerfiles/Dockerfile.frontend --tag frontend:latest
