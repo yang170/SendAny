@@ -40,5 +40,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image for the frontend
-        working-directory: ./conf/dockerfiles
-        run: docker build . --file Dockerfile.frontend --tag frontend:latest
+        run: docker build . --file ./conf/dockerfiles/Dockerfile.frontend --tag frontend:latest
