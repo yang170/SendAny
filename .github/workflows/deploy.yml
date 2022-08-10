@@ -26,5 +26,5 @@ jobs:
           password: ${{ secrets.PUBLISH_IMAGE_TOKEN }}
           
       - name: Pull the latest docker image for the front-end
-        run: docker pull ${{ env.FRONT_END_IMAGE_NAME }}:${{ env.FRONT_END_IMAGE_TAG }}
+        run: docker pull ${{ env.REGISTRY }}/${{ env.FRONT_END_IMAGE_NAME }}:${{ env.FRONT_END_IMAGE_TAG }}
       
