@@ -13,6 +13,7 @@ env:
   REGISTRY: ghcr.io
   FRONT_END_IMAGE_NAME: ${{ github.actor }}/frontend
   FRONT_END_IMAGE_TAG: latest
+  REPO_PATH: ~/ShareAny
   
 jobs:
   deploy_frontend:
@@ -25,6 +26,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.PUBLISH_IMAGE_TOKEN }}
           
-      - name: Pull the latest docker image for the front-end
+      - name: Pull the latest docker image for the frontend
         run: docker pull ${{ env.REGISTRY }}/${{ env.FRONT_END_IMAGE_NAME }}:${{ env.FRONT_END_IMAGE_TAG }}
+      
+      - name: Serve the latest frontend image
+        working-directory: ${{ env.REPO_PATH }}
+        run: docker-compose -f docker-compose-deploy.yml up -d --no-deps --build frontend
       
