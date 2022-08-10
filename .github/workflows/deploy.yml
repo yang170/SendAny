@@ -30,6 +30,6 @@ jobs:
         run: docker pull ${{ env.REGISTRY }}/${{ env.FRONT_END_IMAGE_NAME }}:${{ env.FRONT_END_IMAGE_TAG }}
       
       - name: Serve the latest frontend image
-        working-directory: ${{ env.REPO_PATH }}
+        working-directory: ${{ env.DOCKER_COMPOSE_PATH }}
         run: docker-compose -f docker-compose-deploy.yml up -d --no-deps --build frontend
       
