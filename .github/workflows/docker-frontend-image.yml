@@ -36,10 +36,9 @@ jobs:
 
       - name: temporarily save build files
         uses: actions/upload-artifact@v3
-        working-directory: ./frontend
         with:
           name: npm-build-artifact
-          path: build
+          path: ./frontend/build
           retention-days: 1
 
   build_frontend_docker_image:
@@ -50,10 +49,9 @@ jobs:
 
       - name: retrieve build files
         uses: actions/download-artifact@v3
-        working-directory: ./frontend
         with:
           name: npm-build-artifact
-          path: build
+          path: ./frontend/build
 
       - name: Build the Docker image for the frontend
         run: docker build . --file ./conf/dockerfiles/Dockerfile.frontend --tag frontend:latest
