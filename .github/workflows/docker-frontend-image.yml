@@ -33,7 +33,6 @@ jobs:
         working-directory: ./frontend
         run: |
           npm run build
-          npm run test --passWithNoTests
 
   build_frontend_docker_image:
     runs-on: ubuntu-latest
