@@ -23,16 +23,15 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
-          
-      - name: step into the frontend folder
-        run: cd frontend
         
       - name: Install dependencies
+        working-directory: ./frontend
         run: |
           npm install
           npm ci 
   
       - name: build
+        working-directory: ./frontend
         run: |
           npm run build
           npm run test
@@ -44,4 +43,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image for the frontend
-      run: docker build . --file conf/dockerfiles/Dockerfile.frontend --tag frontend:latest
+      working-directory: ./conf/dockerfiles
+      run: docker build . --file Dockerfile.frontend --tag frontend:latest
