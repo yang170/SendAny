@@ -6,30 +6,31 @@ on:
     branches: [master]
     types:
       - completed
-  
+
   workflow_dispatch:
-  
+
 env:
   REGISTRY: ghcr.io
   FRONT_END_IMAGE_NAME: ${{ github.actor }}/frontend
   FRONT_END_IMAGE_TAG: latest
   DOCKER_COMPOSE_PATH: conf/docker_compose
-  
+
 jobs:
   deploy_frontend:
     runs-on: [self-hosted, shareany]
     steps:
+      - uses: actions/checkout@v3
+
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.PUBLISH_IMAGE_TOKEN }}
-          
+
       - name: Pull the latest docker image for the frontend
         run: docker pull ${{ env.REGISTRY }}/${{ env.FRONT_END_IMAGE_NAME }}:${{ env.FRONT_END_IMAGE_TAG }}
-      
+
       - name: Serve the latest frontend image
         working-directory: ${{ env.DOCKER_COMPOSE_PATH }}
         run: docker-compose -f docker-compose-deploy.yml up -d --no-deps --build frontend
-      
