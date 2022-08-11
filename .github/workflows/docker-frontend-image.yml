@@ -3,6 +3,10 @@ name: CI Docker Image for the Frontend
 on:
   push:
     branches: ["master"]
+    paths-ignore:
+      - "README.md"
+      - "conf/**"
+      - "backend/**"
   pull_request:
     branches: ["master"]
   workflow_dispatch:
