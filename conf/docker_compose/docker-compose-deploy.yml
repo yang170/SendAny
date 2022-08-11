@@ -13,6 +13,9 @@ services:
     # runs on port 8000
     tty: true
     image: docker.io/bitnami/laravel:latest
+    command: >
+      bash -c "composer install
+      && php artisan serve --port=8000"
     environment:
       - DB_HOST=mariadb
       - DB_USERNAME=${DB_USERNAME}
@@ -30,6 +33,7 @@ services:
       - HOST=0.0.0.0
       - PORT=5000
     depends_on:
+      - mariadb
       - backend
     
   nginx:
