@@ -1,6 +1,6 @@
 {
-    "rid": "Sapce ID",
-    "rpwd": "Sapce Password",
+    "rid": "Space ID",
+    "rpwd": "Space Password",
     "join": "Join",
     "passwordPlaceholder": "Optional",
     "errMsgTitleInvalidID": "Space ID is invalid",
