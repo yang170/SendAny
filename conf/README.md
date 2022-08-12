@@ -1,1 +1,1 @@
-Run copnfigs from the project root folder
+Run configs from the project root folder
