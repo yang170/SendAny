@@ -21,18 +21,3 @@ services:
       - mariadb
     ports:
       - 8000:8000
-
-  # backend:
-  #   tty: true
-  #   image: docker.io/bitnami/laravel:8
-  #   environment:
-  #     - DB_HOST=mariadb
-  #     - DB_USERNAME=local_test_user
-  #     - DB_DATABASE=local_db
-  #     - DB_PASSWORD=LOCAL_PWD_CHANGE_IN_PROD
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - 8000:8000
-  #   volumes:
-  #     - ../../backend/:/app

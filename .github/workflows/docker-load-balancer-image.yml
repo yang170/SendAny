@@ -1,4 +1,4 @@
-name: CI Build Docker Image for the Backend
+name: CI Build Docker Image for the Load Balancer
 
 on:
   push:
@@ -6,16 +6,17 @@ on:
     paths-ignore:
       - "README.md"
       - "frontend/**"
+      - "backend/**"
   pull_request:
     branches: ["master"]
   workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.actor }}/backend
+  IMAGE_NAME: ${{ github.actor }}/loadbalancer
 
 jobs:
-  build_and_publish_backend_docker_image:
+  build_and_publish_loadbalancer_docker_image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -38,7 +39,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          file: ./conf/dockerfiles/Dockerfile.backend
+          file: ./conf/dockerfiles/Dockerfile.loadbalancer
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

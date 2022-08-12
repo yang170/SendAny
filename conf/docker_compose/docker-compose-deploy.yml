@@ -34,7 +34,7 @@ services:
       - backend
     
   nginx:
-    image: ghcr.io/yang170/nginx:latest
+    image: ghcr.io/yang170/loadbalancer:latest
     ports:
       - 443:443
       - 80:80
