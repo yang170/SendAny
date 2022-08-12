@@ -1,4 +1,4 @@
-<a href="https://github.com/yang170/ShareAny/blob/master/.github/workflows/deploy.yml"><img src="https://github.com/yang170/ShareAny/actions/workflows/deploy.yml/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/yang170/ShareAny/actions/workflows/deploy.yml"><img src="https://github.com/yang170/ShareAny/actions/workflows/deploy.yml/badge.svg" alt="Build Status"></a>
 
 # ShareAny
 
