@@ -8,7 +8,7 @@ the server once you delete your shared space.
 
 You can deploy it by yourself or access it at [shareany.net](https://www.shareany.net)
 
-## Setup
+# Setup
 
 Refer to the [readme](https://github.com/yang170/ShareAny/tree/master/conf) in
 the conf folder for details on how to bulid docker images
