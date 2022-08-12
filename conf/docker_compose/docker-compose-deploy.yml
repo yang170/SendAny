@@ -12,7 +12,7 @@ services:
   backend:
     # runs on port 8000
     tty: true
-    image: docker.io/bitnami/laravel:latest
+    image: ghcr.io/yang170/backend:latest
     environment:
       - DB_HOST=mariadb
       - DB_USERNAME=${DB_USERNAME}
@@ -20,9 +20,6 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - mariadb
-    volumes:
-      # take the code
-      - ../../backend:/app
 
   frontend:
     image: ghcr.io/yang170/frontend:latest
