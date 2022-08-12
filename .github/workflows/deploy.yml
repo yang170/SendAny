@@ -1,8 +1,8 @@
-name: CD to server
+name: Deploy to Server
 
 on:
   workflow_run:
-    workflows: ["CI Build Docker Image for the Frontend"]
+    workflows: ["Build Docker Image for the Frontend"]
     branches: [master]
     types:
       - completed
