@@ -11,7 +11,7 @@ chmod -R 775 bootstrap/cache
 wait-for-it mariadb:3306 -t 60 -- echo "database is up"
 
 echo "migrating changes to the database"
-php artisan migrate
+php artisan migrate --force
 
 # run
 echo "starting php-fpm and nginx"

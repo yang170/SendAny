@@ -18,7 +18,7 @@ env:
   DOCKER_COMPOSE_PATH: conf/docker_compose
 
 jobs:
-  deploy_frontend:
+  deploy_images:
     runs-on: [self-hosted, shareany]
     steps:
       - uses: actions/checkout@v3
@@ -36,6 +36,6 @@ jobs:
           docker pull ${{ env.REGISTRY }}/${{ env.BACK_END_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           docker pull ${{ env.REGISTRY }}/${{ env.LOAD_BALANCER_END_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
-      - name: Serve the latest frontend image
+      - name: Serve the latest images
         working-directory: ${{ env.DOCKER_COMPOSE_PATH }}
         run: docker-compose -f docker-compose-deploy.yml up -d --build
