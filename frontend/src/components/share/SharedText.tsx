@@ -37,7 +37,6 @@ const SharedText = React.memo(({ session }: ISharedText): JSX.Element => {
 
   const pullSharedText = async ({ session }: ISharedText) => {
     await axios.get(`text/${session}`).then((res) => {
-      console.log(res.data);
       setSharedText({ content: res.data["content"] });
     });
   };

@@ -29,7 +29,6 @@ const SharedFiels = React.memo(({ session }: ISharedFiles): JSX.Element => {
 
   const pullSharedFile = async ({ session }: ISharedFiles) => {
     await axios.get(`upload/${session}`).then((res) => {
-      console.log(res.data);
       setSharedFiles({ files: res.data });
     });
   };

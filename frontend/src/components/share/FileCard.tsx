@@ -46,7 +46,6 @@ const FileCard = React.memo(
           window.URL.revokeObjectURL(url);
         })
         .catch((err) => {
-          console.log(err);
           toastError(
             t("errMsgTitleRoomDoesNotExist"),
             t("errMsgDetailRoomDoesNotExist")

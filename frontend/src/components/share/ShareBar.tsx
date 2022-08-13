@@ -59,8 +59,6 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
       inputFile.current.files !== null &&
       inputFile.current.files[0] !== undefined
     ) {
-      console.log(inputFile.current.files[0]);
-
       const FILE_SIZE_LIMIG = 20000000;
       if (inputFile.current.files[0].size > FILE_SIZE_LIMIG) {
         toastError(
