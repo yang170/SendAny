@@ -30,5 +30,7 @@ export PRIV_KEY_PATH=[your_val]
 
 # Github Action Secret
 
-It's requried for you to setup an action secret named as `PUBLISH_IMAGE_TOKEN` to
+Optional, only if you want to use github actions.
+
+You'll need to setup an action secret named as `PUBLISH_IMAGE_TOKEN` to
 make github actions work. We use this secret to publish images build in the actions.
