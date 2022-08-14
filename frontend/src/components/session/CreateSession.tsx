@@ -11,7 +11,7 @@ import {
 import { AxiosResponse } from "axios";
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { axiosInstance as axios } from "../../axios";
 import { Path } from "../../enums/path";
@@ -19,7 +19,6 @@ import { BackButton } from "../common/BackButton";
 
 const CreateSession = React.memo((): JSX.Element => {
   const nevigate = useNavigate();
-  const location = useLocation();
   const { t } = useTranslation("createSession");
 
   const handleCreateButtonClick = () => {

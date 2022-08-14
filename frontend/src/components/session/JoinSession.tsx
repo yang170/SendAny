@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { axiosInstance as axios } from "../../axios";
 import { Path } from "../../enums/path";
@@ -24,7 +24,6 @@ interface ISessionID {
 
 const JoinSession = React.memo((): JSX.Element => {
   const SESSION_ID_LEN = 6;
-  const location = useLocation();
   const nevigate = useNavigate();
   const { t } = useTranslation(["joinSession", "common"]);
   const toast = useToast();
