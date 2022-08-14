@@ -4,16 +4,12 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-interface IBackButton {
-  previousPath: string;
-}
-
-const BackButton = React.memo(({ previousPath }: IBackButton): JSX.Element => {
+const BackButton = React.memo((): JSX.Element => {
   const nevigate = useNavigate();
   const { t } = useTranslation("common");
 
   const handleBackClick = (): void => {
-    nevigate(previousPath);
+    nevigate(-1); // previous page
   };
 
   return (

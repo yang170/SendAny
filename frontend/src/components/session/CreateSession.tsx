@@ -40,7 +40,7 @@ const CreateSession = React.memo((): JSX.Element => {
         height="15em"
         margin="3"
       >
-        <BackButton previousPath={Path.Home} />
+        <BackButton />
         <Text fontSize="xl">{t("title")}</Text>
         <Spacer />
         <Input placeholder={t("passwordPlaceholder")}></Input>

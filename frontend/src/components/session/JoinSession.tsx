@@ -77,7 +77,7 @@ const JoinSession = React.memo((): JSX.Element => {
   return (
     <Center width="full" paddingTop="20vh">
       <Flex direction="column" width="3xl" height="16em" margin="3">
-        <BackButton previousPath={Path.Home} />
+        <BackButton />
         <Text fontSize="xl">{t("rid")}</Text>
         <Spacer />
         <HStack>

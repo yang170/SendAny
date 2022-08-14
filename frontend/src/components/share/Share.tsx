@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { axiosInstance as axios } from "../../axios";
+import { Path } from "../../enums/path";
 import { ShareBar } from "./ShareBar";
 import { SharedFiels } from "./SharedFiles";
 import { SharedText } from "./SharedText";
@@ -29,7 +30,7 @@ const Share = React.memo((): JSX.Element => {
 
   const handleDeleteSession = () => {
     axios.delete("session", { data: { session_number: session } }).then(() => {
-      nevigate("/");
+      nevigate(Path.Home);
     });
   };
 
