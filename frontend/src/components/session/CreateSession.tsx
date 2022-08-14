@@ -24,7 +24,7 @@ const CreateSession = React.memo((): JSX.Element => {
   const handleCreateButtonClick = () => {
     axios.get("session").then((res: AxiosResponse) => {
       const sessionNumber = res.data.sessionNumber;
-      nevigate(Path.Share, {
+      nevigate(`/${Path.Share}`, {
         replace: true,
         state: { session: sessionNumber },
       });

@@ -30,7 +30,7 @@ const Share = React.memo((): JSX.Element => {
 
   const handleDeleteSession = () => {
     axios.delete("session", { data: { session_number: session } }).then(() => {
-      nevigate(Path.Home);
+      nevigate(`/${Path.Home}`);
     });
   };
 

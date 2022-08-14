@@ -63,7 +63,7 @@ const JoinSession = React.memo((): JSX.Element => {
           return;
         } else {
           const sessionNumber = res.data.sessionNumber;
-          nevigate(Path.Share, {
+          nevigate(`/${Path.Share}`, {
             replace: true,
             state: { session: sessionNumber },
           });
