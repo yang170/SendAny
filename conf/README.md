@@ -1,4 +1,4 @@
-# Run Configs
+# Run Docker Compose
 
 Run configs from the project root folder
 
