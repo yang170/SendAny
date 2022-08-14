@@ -1,6 +1,6 @@
 import * as React from "react";
 import { axiosInstance as axios } from "../../axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Button,
   Center,
@@ -13,7 +13,7 @@ import {
   PinInputField,
   useToast,
 } from "@chakra-ui/react";
-import { BackToSelectButton } from "./BackToSelectButton";
+import { BackButton } from "../common/BackButton";
 import { useTranslation } from "react-i18next";
 
 interface ISessionID {
@@ -22,6 +22,7 @@ interface ISessionID {
 
 const JoinSession = React.memo((): JSX.Element => {
   const SESSION_ID_LEN = 6;
+  const location = useLocation();
   const nevigate = useNavigate();
   const { t } = useTranslation(["joinSession", "common"]);
   const toast = useToast();
@@ -75,7 +76,7 @@ const JoinSession = React.memo((): JSX.Element => {
   return (
     <Center width="full" paddingTop="20vh">
       <Flex direction="column" width="3xl" height="16em" margin="3">
-        <BackToSelectButton />
+        <BackButton previousPath={location.pathname} />
         <Text fontSize="xl">{t("rid")}</Text>
         <Spacer />
         <HStack>

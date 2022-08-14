@@ -1,7 +1,7 @@
 import * as React from "react";
 import { axiosInstance as axios } from "../../axios";
 import { AxiosResponse } from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Alert,
   AlertIcon,
@@ -12,11 +12,12 @@ import {
   Flex,
   Spacer,
 } from "@chakra-ui/react";
-import { BackToSelectButton } from "./BackToSelectButton";
+import { BackButton } from "../common/BackButton";
 import { useTranslation } from "react-i18next";
 
 const CreateSession = React.memo((): JSX.Element => {
   const nevigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation("createSession");
 
   const handleCreateButtonClick = () => {
@@ -38,7 +39,7 @@ const CreateSession = React.memo((): JSX.Element => {
         height="15em"
         margin="3"
       >
-        <BackToSelectButton />
+        <BackButton previousPath={location.pathname} />
         <Text fontSize="xl">{t("title")}</Text>
         <Spacer />
         <Input placeholder={t("passwordPlaceholder")}></Input>

@@ -4,12 +4,16 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const BackToSelectButton = React.memo((): JSX.Element => {
+interface IBackButton {
+  previousPath: string;
+}
+
+const BackButton = React.memo(({ previousPath }: IBackButton): JSX.Element => {
   const nevigate = useNavigate();
   const { t } = useTranslation("common");
 
   const handleBackClick = (): void => {
-    nevigate("/");
+    nevigate(previousPath);
   };
 
   return (
@@ -27,4 +31,4 @@ const BackToSelectButton = React.memo((): JSX.Element => {
   );
 });
 
-export { BackToSelectButton };
+export { BackButton };
