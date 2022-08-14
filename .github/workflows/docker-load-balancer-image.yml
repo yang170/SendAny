@@ -1,4 +1,4 @@
-name: Build Docker Image for the Load Balancer
+name: Build Load Balancer Image
 
 on:
   push:

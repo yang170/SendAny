@@ -1,8 +1,8 @@
-name: Deploy to Server
+name: Deploy / Production
 
 on:
   workflow_run:
-    workflows: ["Build Docker Image for the Frontend"]
+    workflows: ["Build Frontend Image"]
     branches: [master]
     types:
       - completed
