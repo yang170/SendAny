@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Flex, IconButton, useColorMode } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { Flex, IconButton, useColorMode } from "@chakra-ui/react";
+import * as React from "react";
 
 const ColorModeToggle = React.memo((): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();

@@ -1,7 +1,7 @@
+import { Button, Center, Flex, Spacer, Text } from "@chakra-ui/react";
 import * as React from "react";
-import { Button, Center, Text, Flex, Spacer } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const ChooseMode = React.memo((): JSX.Element => {
   const nevigate = useNavigate();

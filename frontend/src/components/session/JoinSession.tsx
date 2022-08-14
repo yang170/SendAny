@@ -1,20 +1,22 @@
-import * as React from "react";
-import { axiosInstance as axios } from "../../axios";
-import { useNavigate, useLocation } from "react-router-dom";
 import {
   Button,
   Center,
-  Input,
-  Text,
   Flex,
-  Spacer,
   HStack,
+  Input,
   PinInput,
   PinInputField,
+  Spacer,
+  Text,
   useToast,
 } from "@chakra-ui/react";
-import { BackButton } from "../common/BackButton";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { axiosInstance as axios } from "../../axios";
+import { Path } from "../../enums/path";
+import { BackButton } from "../common/BackButton";
 
 interface ISessionID {
   ID: string;
@@ -76,7 +78,7 @@ const JoinSession = React.memo((): JSX.Element => {
   return (
     <Center width="full" paddingTop="20vh">
       <Flex direction="column" width="3xl" height="16em" margin="3">
-        <BackButton previousPath={location.pathname} />
+        <BackButton previousPath={Path.Home} />
         <Text fontSize="xl">{t("rid")}</Text>
         <Spacer />
         <HStack>

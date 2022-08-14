@@ -1,8 +1,9 @@
+import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
+import { useTranslation } from "react-i18next";
+
 import { axiosInstance as axios } from "../../axios";
 import { FileCard, IFileCard } from "./FileCard";
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
 
 interface ISharedFiles {
   session: string;

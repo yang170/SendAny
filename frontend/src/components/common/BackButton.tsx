@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Button } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 interface IBackButton {
   previousPath: string;

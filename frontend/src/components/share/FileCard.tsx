@@ -1,8 +1,9 @@
-import * as React from "react";
-import { axiosInstance as axios } from "../../axios";
-import { Flex, IconButton, Text, useToast } from "@chakra-ui/react";
 import { DownloadIcon } from "@chakra-ui/icons";
+import { Flex, IconButton, Text, useToast } from "@chakra-ui/react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
+
+import { axiosInstance as axios } from "../../axios";
 
 export interface IFileCard {
   fileName: string;

@@ -1,16 +1,17 @@
-import * as React from "react";
-import { axiosInstance as axios } from "../../axios";
-import {
-  HStack,
-  Flex,
-  IconButton,
-  Text,
-  ScaleFade,
-  useColorModeValue,
-  useClipboard,
-} from "@chakra-ui/react";
 import { CopyIcon } from "@chakra-ui/icons";
+import {
+  Flex,
+  HStack,
+  IconButton,
+  ScaleFade,
+  Text,
+  useClipboard,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
+
+import { axiosInstance as axios } from "../../axios";
 
 interface ISharedText {
   session: string;

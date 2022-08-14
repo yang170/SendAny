@@ -1,8 +1,9 @@
-import * as React from "react";
 import { Flex, HStack } from "@chakra-ui/react";
+import * as React from "react";
+
 import { About } from "./About";
-import { ColorModeToggle } from "./ColorModeToggle";
 import { ChooseLanguage } from "./ChooseLanguage";
+import { ColorModeToggle } from "./ColorModeToggle";
 
 const NavBar = React.memo((): JSX.Element => {
   return (

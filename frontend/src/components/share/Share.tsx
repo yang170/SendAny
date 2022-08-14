@@ -1,20 +1,21 @@
-import * as React from "react";
-import {
-  Tag,
-  Flex,
-  TagLeftIcon,
-  TagLabel,
-  Button,
-  HStack,
-} from "@chakra-ui/react";
-import { axiosInstance as axios } from "../../axios";
 import { DeleteIcon } from "@chakra-ui/icons";
-import { useLocation, useNavigate } from "react-router-dom";
 import { InfoIcon } from "@chakra-ui/icons";
+import {
+  Button,
+  Flex,
+  HStack,
+  Tag,
+  TagLabel,
+  TagLeftIcon,
+} from "@chakra-ui/react";
+import * as React from "react";
+import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { axiosInstance as axios } from "../../axios";
 import { ShareBar } from "./ShareBar";
 import { SharedFiels } from "./SharedFiles";
 import { SharedText } from "./SharedText";
-import { useTranslation } from "react-i18next";
 
 interface ISessionLocation {
   session: string;

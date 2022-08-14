@@ -1,15 +1,16 @@
-import * as React from "react";
-import { axiosInstance as axios } from "../../axios";
+import { AttachmentIcon, CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
-  Textarea,
-  HStack,
   Flex,
+  HStack,
+  Textarea,
   useToast,
 } from "@chakra-ui/react";
-import { AttachmentIcon, CloseIcon, CheckIcon } from "@chakra-ui/icons";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
+
+import { axiosInstance as axios } from "../../axios";
 
 interface IShareBar {
   session: string;

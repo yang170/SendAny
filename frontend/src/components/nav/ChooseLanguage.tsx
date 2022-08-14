@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Button, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 
 const ChooseLanguage = React.memo((): JSX.Element => {

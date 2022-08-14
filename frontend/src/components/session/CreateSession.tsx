@@ -1,19 +1,21 @@
-import * as React from "react";
-import { axiosInstance as axios } from "../../axios";
-import { AxiosResponse } from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
 import {
   Alert,
   AlertIcon,
   Button,
   Center,
-  Input,
-  Text,
   Flex,
+  Input,
   Spacer,
+  Text,
 } from "@chakra-ui/react";
-import { BackButton } from "../common/BackButton";
+import { AxiosResponse } from "axios";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { axiosInstance as axios } from "../../axios";
+import { Path } from "../../enums/path";
+import { BackButton } from "../common/BackButton";
 
 const CreateSession = React.memo((): JSX.Element => {
   const nevigate = useNavigate();
@@ -23,7 +25,7 @@ const CreateSession = React.memo((): JSX.Element => {
   const handleCreateButtonClick = () => {
     axios.get("session").then((res: AxiosResponse) => {
       const sessionNumber = res.data.sessionNumber;
-      nevigate("/share", {
+      nevigate(Path.Share, {
         replace: true,
         state: { session: sessionNumber },
       });
@@ -39,7 +41,7 @@ const CreateSession = React.memo((): JSX.Element => {
         height="15em"
         margin="3"
       >
-        <BackButton previousPath={location.pathname} />
+        <BackButton previousPath={Path.Home} />
         <Text fontSize="xl">{t("title")}</Text>
         <Spacer />
         <Input placeholder={t("passwordPlaceholder")}></Input>

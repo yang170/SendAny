@@ -1,15 +1,15 @@
-import * as React from "react";
+import { ChevronDownIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Button,
+  Link,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
-  Link,
+  MenuList,
 } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
-import { ChevronDownIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Link as RouterLink } from "react-router-dom";
 
 const About = React.memo((): JSX.Element => {
   const { t } = useTranslation("nav");
