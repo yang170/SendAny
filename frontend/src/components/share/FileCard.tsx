@@ -55,7 +55,7 @@ const FileCard = React.memo(({ fileName, session }: IFileCard): JSX.Element => {
 
   return (
     <Flex marginLeft="3" marginBottom="2" width="70%">
-      <Text marginTop="auto" marginBlock="auto" isTruncated>
+      <Text marginTop="auto" marginBlock="auto" noOfLines={1}>
         {fileName}
       </Text>
       <IconButton
