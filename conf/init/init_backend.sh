@@ -1,5 +1,7 @@
 #!/bin/bash
 
+composer install
+
 # grant permissions
 # https://stackoverflow.com/questions/23411520/how-to-fix-error-laravel-log-could-not-be-opened
 chown -R $USER:www-data storage

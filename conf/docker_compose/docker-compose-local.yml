@@ -11,7 +11,7 @@ services:
 
   backend:
     tty: true
-    image: backend:0.0.1
+    image: backend:latest
     environment:
       - DB_HOST=mariadb
       - DB_USERNAME=local_test_user
@@ -19,5 +19,16 @@ services:
       - DB_PASSWORD=LOCAL_PWD_CHANGE_IN_PROD
     depends_on:
       - mariadb
+    volumes:
+      - ../../backend:/usr/src/backend
     ports:
       - 8000:8000
+
+  frontend:
+    tty: true
+    image: frontend-dev:latest
+    command: npm run start
+    volumes:
+      - ../../frontend:/home/frontend/
+    ports:
+      - 3000:3000

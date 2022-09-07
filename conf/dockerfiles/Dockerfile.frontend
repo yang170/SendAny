@@ -5,4 +5,3 @@ COPY ./frontend/build /home/build
 
 RUN npm install -g serve
 CMD serve /home/build
-

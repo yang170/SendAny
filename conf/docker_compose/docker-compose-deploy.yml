@@ -31,7 +31,7 @@ services:
     depends_on:
       - mariadb
       - backend
-    
+
   nginx:
     image: ghcr.io/yang170/loadbalancer:latest
     ports:

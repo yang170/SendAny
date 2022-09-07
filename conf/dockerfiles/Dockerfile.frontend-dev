@@ -1,0 +1,8 @@
+FROM node
+
+RUN mkdir -p home/frontend
+COPY ./frontend /home/frontend
+
+WORKDIR "/home/frontend"
+
+RUN npm install
