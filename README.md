@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/yang170/ShareAny/actions/workflows/deploy.yml/badge.svg)](https://github.com/yang170/ShareAny/actions/workflows/deploy.yml/badge.svg)
+[![Build Status](https://github.com/yang170/ShareAny/actions/workflows/deploy.yml/badge.svg)](https://github.com/yang170/ShareAny/actions/workflows/deploy.yml)
 
 # ShareAny
 
