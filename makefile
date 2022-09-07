@@ -4,8 +4,9 @@ backend_version = latest
 frontend_container_name = docker_compose-frontend-1
 backend_container_name = docker_compose-backend-1
 
-docker-prune:
+clean:
 	docker image prune -f
+	docker rm $(docker ps --filter status=exited -q)
 
 f: # build frontend
 	cd frontend && npm run build
