@@ -75,7 +75,7 @@ const JoinSession = React.memo((): JSX.Element => {
   };
 
   return (
-    <Center width="full" paddingTop="20vh">
+    <Center width="full" paddingTop="27vh">
       <Flex direction="column" width="3xl" height="16em" margin="3">
         <BackButton />
         <Text fontSize="xl">{t("rid")}</Text>

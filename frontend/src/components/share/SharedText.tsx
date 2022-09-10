@@ -43,7 +43,9 @@ const SharedText = React.memo(({ session }: ISharedText): JSX.Element => {
   };
 
   const handleCopy = () => {
-    onCopy();
+    if (sharedText.content.length > 0) {
+      onCopy();
+    }
   };
 
   return (

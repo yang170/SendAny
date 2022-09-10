@@ -32,7 +32,7 @@ const CreateSession = React.memo((): JSX.Element => {
   };
 
   return (
-    <Center width="full" paddingTop="20vh">
+    <Center width="full" paddingTop="27vh">
       <Flex
         direction="column"
         justify="center"

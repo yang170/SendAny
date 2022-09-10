@@ -26,9 +26,8 @@ fid-shell:
 bi-shell:
 	docker exec -it $(backend_container_name) bash
 
-du: bi fid # bring dev containers up
-	docker compose -f conf/docker_compose/docker-compose-local.yml up
+du: # bring dev containers up
+	docker compose -f conf/docker_compose/docker-compose-local.yml up -d
 
 dd: # bring dev containers down
 	docker compose -f conf/docker_compose/docker-compose-local.yml down
- 
