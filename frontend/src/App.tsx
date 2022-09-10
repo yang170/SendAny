@@ -13,10 +13,10 @@ import { theme } from "./style/theme";
 
 function App() {
   return (
-    <React.Suspense fallback={<Loader />}>
-      <ChakraProvider theme={theme}>
-        <BrowserRouter>
-          <NavBar />
+    <ChakraProvider theme={theme}>
+      <BrowserRouter>
+        <NavBar />
+        <React.Suspense fallback={<Loader />}>
           <Routes>
             <Route path={Path.Home} element={<ChooseMode />} />
             <Route path={Path.Create} element={<CreateSession />} />
@@ -24,9 +24,9 @@ function App() {
             <Route path={Path.Share} element={<Share />} />
             <Route path={Path.Privacy} element={<Privacy />}></Route>
           </Routes>
-        </BrowserRouter>
-      </ChakraProvider>
-    </React.Suspense>
+        </React.Suspense>
+      </BrowserRouter>
+    </ChakraProvider>
   );
 }
 
