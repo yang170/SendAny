@@ -29,7 +29,7 @@ const About = React.memo((): JSX.Element => {
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link href="https://github.com/yang170/ShareAny" isExternal>
+          <Link href="https://github.com/yang170/share-any" isExternal>
             {t("viewSource")}
             <ExternalLinkIcon marginLeft="1" />
           </Link>
