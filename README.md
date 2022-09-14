@@ -15,4 +15,4 @@ the conf folder for details on how to bulid docker images
 
 # Other Variants
 
-A distributed version of this web app can be found [here](https://github.com/yang170/ShareAnyDistributed-stable)
+A distributed version of this web app can be found [here](https://github.com/yang170/share-any-distributed)
