@@ -19,6 +19,9 @@ Run configs from the project root folder
 
 `docker-compose-deploy.yml` requires the following environment variable in the host machine
 
+An [example script](https://github.com/yang170/share-any/blob/master/conf/bash_env/exports-example.sh)
+to inject environment variables is avaliable
+
 ```
 export DB_PASSWORD=[your_val]
 export DB_ROOT_PASSWORD=[your_val]
