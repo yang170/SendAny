@@ -10,7 +10,7 @@ You can deploy it by yourself or access it at [shareany.net](https://www.sharean
 
 # Setup
 
-Refer to the [readme](https://github.com/yang170/ShareAny/tree/master/conf) in
+Refer to the [readme](https://github.com/yang170/share-any/tree/master/conf) in
 the conf folder for details on how to bulid docker images
 
 # Other Variants
