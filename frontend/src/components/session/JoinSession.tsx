@@ -24,7 +24,7 @@ interface ISessionID {
 
 const JoinSession = React.memo((): JSX.Element => {
   const SESSION_ID_LEN = 6;
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
   const { t } = useTranslation(["joinSession", "common"]);
   const toast = useToast();
   const [session, setSession] = React.useState<ISessionID>({
@@ -63,7 +63,7 @@ const JoinSession = React.memo((): JSX.Element => {
           return;
         } else {
           const sessionNumber = res.data.sessionNumber;
-          nevigate(`/${Path.Share}`, {
+          navigate(`/${Path.Share}`, {
             replace: true,
             state: { session: sessionNumber },
           });

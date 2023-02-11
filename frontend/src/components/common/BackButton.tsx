@@ -5,11 +5,11 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const BackButton = React.memo((): JSX.Element => {
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
   const { t } = useTranslation("common");
 
   const handleBackClick = (): void => {
-    nevigate(-1); // previous page
+    navigate(-1); // previous page
   };
 
   return (

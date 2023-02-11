@@ -4,15 +4,15 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const ChooseMode = React.memo((): JSX.Element => {
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
   const { t } = useTranslation("chooseMode");
 
   const handleCreateClick = (): void => {
-    nevigate("/create");
+    navigate("/create");
   };
 
   const handleJoinClick = (): void => {
-    nevigate("/join");
+    navigate("/join");
   };
 
   return (

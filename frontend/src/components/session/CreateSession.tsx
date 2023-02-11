@@ -18,13 +18,13 @@ import { Path } from "../../enums/path";
 import { BackButton } from "../common/BackButton";
 
 const CreateSession = React.memo((): JSX.Element => {
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
   const { t } = useTranslation("createSession");
 
   const handleCreateButtonClick = () => {
     axios.get("session").then((res: AxiosResponse) => {
       const sessionNumber = res.data.sessionNumber;
-      nevigate(`/${Path.Share}`, {
+      navigate(`/${Path.Share}`, {
         replace: true,
         state: { session: sessionNumber },
       });
