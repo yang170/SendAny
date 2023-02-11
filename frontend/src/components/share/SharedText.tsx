@@ -30,6 +30,7 @@ const SharedText = React.memo(({ session }: ISharedText): JSX.Element => {
   const { hasCopied, onCopy } = useClipboard(sharedText.content);
 
   React.useEffect(() => {
+    pullSharedText({ session })
     const interval = setInterval(() => pullSharedText({ session }), 5000);
     return () => {
       clearInterval(interval);

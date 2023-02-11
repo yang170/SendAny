@@ -22,6 +22,7 @@ const SharedFiles = React.memo(({ session }: ISharedFiles): JSX.Element => {
   >();
 
   React.useEffect(() => {
+    pullSharedFile({ session })
     const interval = setInterval(() => pullSharedFile({ session }), 5000);
     return () => {
       clearInterval(interval);
