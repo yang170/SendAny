@@ -53,18 +53,18 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
     });
   };
 
-  const handleAttchFileUpload = () => {
+  const handleAttachFileUpload = () => {
     if (
       inputFile !== null &&
       inputFile.current !== null &&
       inputFile.current.files !== null &&
       inputFile.current.files[0] !== undefined
     ) {
-      const FILE_SIZE_LIMIG = 20000000;
-      if (inputFile.current.files[0].size > FILE_SIZE_LIMIG) {
+      const FILE_SIZE_LIMIT = 50000000;
+      if (inputFile.current.files[0].size > FILE_SIZE_LIMIT) {
         toastError(
           t("errMsgTitleFileTooLarge"),
-          t("errMsgDetailFileTooLarge", { limit: FILE_SIZE_LIMIG / 1000000 })
+          t("errMsgDetailFileTooLarge", { limit: FILE_SIZE_LIMIT / 1000000 })
         );
         return;
       }
@@ -102,7 +102,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
     ) {
       e.preventDefault();
       inputFile.current.files = e.dataTransfer.files;
-      handleAttchFileUpload();
+      handleAttachFileUpload();
       e.dataTransfer.clearData();
     }
   };
@@ -176,7 +176,7 @@ const ShareBar = React.memo(({ session }: IShareBar): JSX.Element => {
           type="file"
           id="file"
           ref={inputFile}
-          onChange={handleAttchFileUpload}
+          onChange={handleAttachFileUpload}
           style={{ display: "none" }}
         />
       </HStack>

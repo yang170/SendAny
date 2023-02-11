@@ -13,7 +13,7 @@ interface ISharedFilesState {
   files: [IFileCard];
 }
 
-const SharedFiels = React.memo(({ session }: ISharedFiles): JSX.Element => {
+const SharedFiles = React.memo(({ session }: ISharedFiles): JSX.Element => {
   const { t } = useTranslation("share");
   const backgroundColor = useColorModeValue("gray.100", "gray.600");
 
@@ -63,4 +63,4 @@ const SharedFiels = React.memo(({ session }: ISharedFiles): JSX.Element => {
   );
 });
 
-export { SharedFiels };
+export { SharedFiles };

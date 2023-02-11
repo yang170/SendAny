@@ -15,7 +15,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { axiosInstance as axios } from "../../axios";
 import { Path } from "../../enums/path";
 import { ShareBar } from "./ShareBar";
-import { SharedFiels } from "./SharedFiles";
+import { SharedFiles } from "./SharedFiles";
 import { SharedText } from "./SharedText";
 
 interface ISessionLocation {
@@ -25,14 +25,14 @@ interface ISessionLocation {
 const Share = React.memo((): JSX.Element => {
   const { t } = useTranslation("share");
   const { state } = useLocation();
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
   const session = (state as ISessionLocation).session;
 
   const handleDeleteSession = () => {
     axios.delete("session", { data: { session_number: session } }).then(() => {
-      nevigate(Path.Home);
+      navigate(Path.Home);
     }).catch(() => {
-      nevigate(Path.Home);
+      navigate(Path.Home);
     });
   };
 
@@ -56,7 +56,7 @@ const Share = React.memo((): JSX.Element => {
           {t("deleteRoom")}
         </Button>
       </HStack>
-      <SharedFiels session={session} />
+      <SharedFiles session={session} />
       <SharedText session={session} />
       <ShareBar session={session} />
     </Flex>
