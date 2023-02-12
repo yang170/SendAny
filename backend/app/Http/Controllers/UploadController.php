@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UploadController extends Controller
 {
-    const SIZE_LIMIT = 20000000; // 20 MB
+    const SIZE_LIMIT = 50000000; // 50 MB
 
     private function isSessionExist($sessionNumber)
     {
