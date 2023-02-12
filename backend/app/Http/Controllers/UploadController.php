@@ -59,10 +59,10 @@ class UploadController extends Controller
 
         if ($file && $size <= UploadController::SIZE_LIMIT) {
             $path = Storage::putFile($session, $file);
-            $origionalName = $file->getClientOriginalName();
+            $originalName = $file->getClientOriginalName();
 
             $fileRecord = new File;
-            $fileRecord->file_name = $origionalName;
+            $fileRecord->file_name = $originalName;
             $fileRecord->session_id = Session::where('session_number', $session)
                 ->first()
                 ->id;
