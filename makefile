@@ -3,9 +3,12 @@ frontend_version = latest
 backend_version = latest
 frontend_container_name = docker_compose-frontend-1
 backend_container_name = docker_compose-backend-1
+local_http_address = http://localhost:3000/
+
+all: bi fid # build dev images
 
 clean:
-	docker image prune -f
+	docker image prune -f && \
 	docker rm $(docker ps --filter status=exited -q)
 
 f: # build frontend
@@ -27,7 +30,8 @@ bi-shell:
 	docker exec -it $(backend_container_name) bash
 
 du: # bring dev containers up
-	docker compose -f conf/docker_compose/docker-compose-local.yml up -d
+	docker compose -f conf/docker_compose/docker-compose-local.yml up -d && \
+	echo "ShareAny is up and running at $(local_http_address)"
 
 dd: # bring dev containers down
 	docker compose -f conf/docker_compose/docker-compose-local.yml down

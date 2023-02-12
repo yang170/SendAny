@@ -3,6 +3,7 @@ version: '3'
 services:
   mariadb:
     image: docker.io/bitnami/mariadb:10.6
+    platform: linux/amd64
     environment:
       - MARIADB_USER=local_test_user
       - MARIADB_DATABASE=local_db
